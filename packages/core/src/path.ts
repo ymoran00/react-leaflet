@@ -47,7 +47,10 @@ export function usePathInteractive(
           }
         }
         if ('getElement' in element.instance) {
-          updateInteractive(element.instance.getElement() as HTMLElement)
+          const htmlElement = element.instance.getElement() as HTMLElement;
+          if (htmlElement) {
+            updateInteractive(htmlElement)
+          }
         } else if ('getLayers' in element.instance) {
           // Do nothing for now.
         }
